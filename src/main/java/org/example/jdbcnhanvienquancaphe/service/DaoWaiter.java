@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DaoWaiter implements IDaoWaiter {
-   private String jdbcURL = "jdbc:mysql://localhost:3306/demo?userSSL=false";
+   private String jdbcURL = "jdbc:mysql://localhost:3306/waitersandcoffeecodegym?userSSL=false";
    private String jdbcUsername = "root";
    private String jdbcPassWord = "hikkiroku";
 
 
-   private static final String ADD_WAITER_SQL = "INSERT INTO waiters (id,name,salary) VALUES (?,?,?);";
-   private static final String FIND_WAITER_BY_ID = "SELECT id,name,salary from waiters where id =?";
-   private static final String FIND_ALl_WAITER = "SELECT * FROM waiters";
-   private static final String DELETE_WAITER_SQL = "DELETE FORM waiters WHERE id = ?";
-   private static final String UPDATE_WAITER_SQL = "UPDATE waiters set name = ?, salary= ?";
+   private static final String ADD_WAITER_SQL = "INSERT INTO demo.waiters (id,name,salary) VALUES (?,?,?);";
+   private static final String FIND_WAITER_BY_ID = "SELECT id,name,salary from demo.waiters where id =?";
+   private static final String FIND_ALl_WAITER = "SELECT * FROM demo.waiters";
+   private static final String DELETE_WAITER_SQL = "DELETE FORM demo.waiters WHERE id = ?";
+   private static final String UPDATE_WAITER_SQL = "UPDATE demo.waiters set name = ?, salary= ?";
 
 
 

@@ -92,8 +92,8 @@ public class WaiterServlet extends HttpServlet {
     private void listWaiter(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<Waiter> listWaiter = daoWaiter.findAllWaiter();
-        request.setAttribute("listWaiter", listWaiter);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
+        request.setAttribute("listWaiters", listWaiter);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/waiters/list.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -101,7 +101,7 @@ public class WaiterServlet extends HttpServlet {
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("waiter/create.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/waiters/create.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -109,7 +109,7 @@ public class WaiterServlet extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Waiter existingUser = daoWaiter.findbyId(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("waiter/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/waiters/edit.jsp");
         request.setAttribute("waiter", existingUser);
         dispatcher.forward(request, response);
 
@@ -123,7 +123,7 @@ public class WaiterServlet extends HttpServlet {
        String salary = request.getParameter("salary");
        Waiter newWaiter = new Waiter(id,name,salary);
        daoWaiter.addWaiter(newWaiter);
-       RequestDispatcher dispatcher = request.getRequestDispatcher("waiters/addWaiter.jsp");
+       RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/waiters/addWaiter.jsp");
        dispatcher.forward(request,response);
     }
 
@@ -136,7 +136,7 @@ public class WaiterServlet extends HttpServlet {
 
         Waiter waiter = new Waiter(id, name, salary);
         daoWaiter.updateWaiter(id,waiter);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/waiters/edit.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -152,11 +152,11 @@ public class WaiterServlet extends HttpServlet {
 
         List<Waiter> listWaiters = daoWaiter.findAllWaiter();
         request.setAttribute("listWaiters", listWaiters );
-        RequestDispatcher dispatcher = request.getRequestDispatcher("waiters/list.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/waiters/list.jsp");
         dispatcher.forward(request, response);
     }
 }
 
 
 
-}
+
